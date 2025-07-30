@@ -1,25 +1,15 @@
-//gerar_usuarios_fake.js
-
 const fs = require("fs");
 const { faker } = require("@faker-js/faker");
 const { v4: uuidv4 } = require("uuid");
+
 const LOTE = 100;
 const ARQUIVO = "usuarios.json";
 
-let TOTAL_USUARIOS;
-
-// Verifica se o argumento de linha de comando foi fornecido
+const TOTAL_USUARIOS = parseInt(process.argv[2], 10) || 100;
 if (process.argv.length < 3) {
-  TOTAL_USUARIOS = 100;
   console.error(
-    "O argumento 'users' é necessário para gerar usuários. Foi adotado o tamanho: ",
-    TOTAL_USUARIOS
+    `O argumento 'users' é necessário para gerar usuários. Foi adotado o tamanho: ${TOTAL_USUARIOS}`
   );
-  process.exit(1);
-} else {
-  // Converte o argumento para um número inteiro
-  TOTAL_USUARIOS = parseInt(process.argv[2], 10);
-  console.log(`Argumento fornecido: ${TOTAL_USUARIOS} usuários serão gerados.`);
 }
 
 function gerarUsuario() {
@@ -34,24 +24,21 @@ function gerarUsuario() {
 
 async function gerarEGravarUsuarios() {
   console.log(
-    `🛠️ Iniciando geração de ${TOTAL_USUARIOS} usuários em lotes de ${LOTE}...`
+    `Iniciando geração de ${TOTAL_USUARIOS} usuários em lotes de ${LOTE}...`
   );
 
-  fs.writeFileSync(ARQUIVO, "[\n"); // Início do array
+  fs.writeFileSync(ARQUIVO, "[\n");
 
+  let primeiro = true;
   for (let i = 0; i < TOTAL_USUARIOS; i += LOTE) {
     const usuarios = [];
-
     for (let j = 0; j < LOTE && i + j < TOTAL_USUARIOS; j++) {
       usuarios.push(gerarUsuario());
     }
-
-    const jsonLote = JSON.stringify(usuarios, null, 2);
-    fs.appendFileSync(ARQUIVO, jsonLote.slice(1, -1)); // remove [ e ]
-
-    if (i + LOTE < TOTAL_USUARIOS) {
-      fs.appendFileSync(ARQUIVO, ",\n");
-    }
+    const jsonLote = JSON.stringify(usuarios, null, 2).slice(1, -1);
+    if (!primeiro) fs.appendFileSync(ARQUIVO, ",\n");
+    fs.appendFileSync(ARQUIVO, jsonLote);
+    primeiro = false;
   }
 
   fs.appendFileSync(ARQUIVO, "\n]");

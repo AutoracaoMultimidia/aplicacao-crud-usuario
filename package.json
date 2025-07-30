@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --env-file=.env server.js ",
     "dev": "nodemon --env-file=.env server.js",
-    "generate:users": "node --env-file=.env gerar_usuarios_fake.js"
+    "generate:users": "node --env-file=.env gerar_usuarios_fake.js",
+    "build":"npm i && node --env-file=.env gerar_usuarios_fake.js"
   },
   "keywords": [
     "usuarios",
