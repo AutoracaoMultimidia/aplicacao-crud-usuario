@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #010101;
+    color: #ffffff;
+    display: row;
+    justify-content: center;
+    align-items: center;
+    padding: 62px;
+    position: relative;
+    overflow: hidden;
+    background-image: url('img/stardust.png');
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    background-color: #010101;
+    padding: 16px;
+    text-align: center;
+}
+
+.cont {
+  background-color: #111111;
+  padding: 32px;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #2a2a2a;
+}
+
+.cont input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid #444444;
+  border-radius: 4px;
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.cont input::placeholder {
+  color: #bbbbbb;
+}
+
+button {
+  background-color: #065a36;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+  background-color: #0b8f57;
+  transform: scale(1.05);
+}
+
+
+a {
+  text-decoration: none;
+  color: #8888ff;
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+

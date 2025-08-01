@@ -2,11 +2,29 @@
 
 Este projeto foi desenvolvido como parte da disciplina **Autoração Multimídia II** do curso de **Bacharelado em Sistemas e Mídias Digitais** da **Universidade Federal do Ceará (UFC)**.
 
-## 👨‍🏫 Autor
+## 👨‍🏫 Autores
 
 **Prof. Wellington W. F. Sarmento**  
 Instituto Universidade Virtual (UFC Virtual)
 Universidade Federal do Ceará (UFC)
+
+**Antônio Lucas Vieira de Lima**
+Designer graduando em Sistemas e Mídia Digitais (UFC)
+
+**Henrique Segundo da Fonseca**
+Graduado em Ciências Contábeis (UFC) e Graduando em Sistemas e Mídias Digitais (UFC)
+
+**João Amauri Rodrigues do Nascimento**
+Graduando em Sistemas e Mídias Digitais (UFC)
+
+**John Lennon Fernandes de Andrade**
+Graduando em Sistemas e Mídias Digitais (UFC)
+
+**Luana Moreira Dias**
+Graduanda em Sistemas e Mídias Digitais (UFC)
+
+**Luis Henrique da Costa Silva**
+Graduado em Análise e Desenvolvimento de Sistemas(Unifor) e Graduando em Sistemas e Mídias Digitais (UFC)
 
 ---
 
@@ -48,10 +66,10 @@ Você pode acessar um tutorial completo sobre estra aplicação de exemplo atrav
 | RF0002 | Listar os usuários em uma interface web com paginação                    | ☑️           |
 | RF0003 | Ordenar os usuários por nome ou idade, de forma crescente ou decrescente | ☑️           |
 | RF0004 | Inserir um novo usuário na base de dados (arquivo JSON)                  | ☑️           |
-| RF0005 | Atualizar os dados de um usuário (pelo ID)                               | ⬜           |
-| RF0006 | Remover um usuário do sistema (pelo ID\_                                 | ⬜           |
-| RNF001 | Salvar e manter persistência dos usuários em arquivo JSON                | ⬜           |
-| RNF002 | Paginar os usuários usando API (/list-users/:count?)                     | ⬜           |
+| RF0005 | Atualizar os dados de um usuário (pelo ID)                               | ☑️           |
+| RF0006 | Remover um usuário do sistema (pelo ID\_                                 | ☑️           |
+| RNF001 | Salvar e manter persistência dos usuários em arquivo JSON                | ☑️           |
+| RNF002 | Paginar os usuários usando API (/list-users/:count?)                     | ☑️           |
 
 ---
 

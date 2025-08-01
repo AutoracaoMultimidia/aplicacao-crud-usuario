@@ -3,23 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <title>Alterar Dados de Usuários</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="edit.css" />
   </head>
   <body>
-    <h1>✏️ Alterar Dados de Usuários</h1>
+
+    <div class="nav">
+    <h1 class="nav-titulo">📊 Sistemas e Mídias Digitais</h1>
+
     <menu>
-      <a href="index.html">Voltar para Lista</a>
-      <a href="cadastra_usuario.html">Cadastrar Usuário</a>
-      <a href="remover_usuario.html">Remover Usuários</a>
-    </menu>
+        <div class="actions">
+          <a href="index.html">Retornar ao Home</a>
+          <a href="alterar_dados_usuarios.html" class="edit">Editar</a>
+      <a href="remover_usuario.html" class="remove">Remover</a>
+
+        <a
+          href="cadastra_usuario.html"
+          class="cadastro"
+          rel="noopener noreferrer"
+          >Cadastrar</a
+        >
+
+      </div>
+      </menu>
+    </div>
+   <div class="tabela">
+      
+      <h2>🛰️ ALTERAR DADOS DOS TRIPULANTES</h2>
     <table id="tabelaUsuarios">
+
       <thead>
+      
         <tr>
           <th onclick="ordenarTabela('nome')">Nome ⬍</th>
           <th onclick="ordenarTabela('idade')">Idade ⬍</th>
           <th>Endereço</th>
           <th>Email</th>
-          <th>Ação</th>
+          <th>Editar</th>
         </tr>
       </thead>
       <tbody></tbody>

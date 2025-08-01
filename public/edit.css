@@ -39,73 +39,6 @@
   transform: scale(1.05); 
 }
 
-.hero {
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  overflow: hidden;
-}
-
-.hero-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  
-}
-
-
-.hero-cont {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #ffffff;
-  z-index: 2; 
-  padding: 0 20px; 
-}
-
-.hero-cont h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.hero-cont h3 {
-  font-size: 1.5rem;
-  margin-top: 8px;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 1; 
-}
-
-.tabela {
-  padding: 64px;
-  background-color: #010101;
-  background-image: url('img/stardust.png');
-  background-size: cover;      
-  background-position: center; 
-  background-repeat: no-repeat; 
-}
-
-.tabela h2{
-  text-align: center;
-  color: #ffffff;
-  padding: 16px;
-  margin-bottom: 16px;
-  
-}
-
 .actions a{
   display: inline-block;
   font-size: 14px;
@@ -136,6 +69,23 @@
   transform: scale(1.05); 
 }
 
+.tabela {
+  padding: 64px;
+  background-color: #010101;
+  background-image: url('img/stardust.png');
+  background-size: cover;      
+  background-position: center; 
+  background-repeat: no-repeat; 
+}
+
+.tabela h2{
+  text-align: center;
+  color: #ffffff;
+  padding: 16px;
+  margin-bottom: 16px;
+  
+}
+
 table { 
     display: table;
     width: 100%; 
@@ -147,17 +97,15 @@ table {
 }
 
 thead, th, td { padding: 8px; 
-    border: 1px solid #0c0c0c; 
-    background-color: #003049;
+    border: 1px solid #000000; 
+    background-color: #3b4e73;
 }
 
 
-th { 
-    text-align: center;
-    background-color: #275472; 
+th { background-color: #023e55; 
     cursor: pointer; 
+    text-align: center;
 }
-
 
 .paginacao {
     margin-top: 24px;
@@ -191,4 +139,39 @@ th {
 .paginacao button span {
   color: white;
   font-size: 14px;
+}
+
+
+.btn-editar {
+  background-color: #0275d8;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: opacity .2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-editar:hover {
+  opacity: 0.8;
+}
+
+.btn-remover {
+  background-color: #0275d8;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: opacity .2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.btn-remover:hover {
+  opacity: 0.8;
 }

@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Aplicação para fins didáticos explicando como fazer um crud de usuários usando o node.js, express e JSON.",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node --env-file=.env server.js ",
-    "dev": "nodemon --env-file=.env server.js",
+    "start": "node --env-file=.env backend/server.js ",
+    "dev": "nodemon --env-file=.env backend/server.js",
     "generate:users": "node --env-file=.env gerar_usuarios_fake.js",
     "build":"npm i && node --env-file=.env gerar_usuarios_fake.js"
   },

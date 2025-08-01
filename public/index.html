@@ -6,31 +6,61 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>👥 Lista de Usuários com Paginação</h1>
-    <!-- Adicione estes links no menu do index.html -->
-    <menu>
-      <a href="cadastra_usuario.html">Cadastrar Usuário</a>
-      <a href="alterar_dados_usuarios.html">Alterar Usuários</a>
-      <a href="remover_usuario.html">Remover Usuários</a>
-    </menu>
+    
+    <div class="nav">
+      <h3 class="nav-titulo">📊 Sistemas e Mídias Digitais</h3>
+
+      <menu>
+        <div class="actions">
+          <a href="alterar_dados_usuarios.html" class="edit">Editar</a>
+      <a href="remover_usuario.html" class="remove">Remover</a>
+
+        <a
+          href="cadastra_usuario.html"
+          class="cadastro"
+          rel="noopener noreferrer"
+          >Cadastrar</a
+        >
+
+      </div>
+      </menu>
+    </div>
+
+    <div class="hero">
+      <video autoplay muted loop class="hero-video">
+        <source src="img/ship.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-cont">
+        <h1>AUTORAÇÃO MULTIMÍDIA II</h1>
+        <h3>Atividade Final</h3>
+      </div>
+    </div>
+
+    <div class="tabela">
+      
+      <h2>🧑‍🚀 LISTA DE TRIPULANTES A BORDO</h2>
     <table id="tabelaUsuarios">
+
       <thead>
+        
+      
         <tr>
           <th onclick="ordenarTabela('nome')">Nome ⬍</th>
           <th onclick="ordenarTabela('idade')">Idade ⬍</th>
           <th>Endereço</th>
           <th>Email</th>
+          
         </tr>
       </thead>
       <tbody></tbody>
     </table>
-
+    
     <div class="paginacao">
       <button onclick="paginaAnterior()">⬅ Anterior</button>
       Página <span id="paginaAtual">1</span> de <span id="totalPaginas">1</span>
       <button onclick="proximaPagina()">Próxima ➡</button>
     </div>
-
+</div>
     <script src="script.js"></script>
   </body>
 </html>

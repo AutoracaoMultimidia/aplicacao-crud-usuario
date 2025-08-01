@@ -8,7 +8,7 @@ let paginaAtual = 1;
 const usuariosPorPagina = 20;
 
 // Define o campo e a ordem (crescente ou decrescente) para a ordenação
-let ordemAtual = { campo: "nome", crescente: true };
+let ordemAtual = { campo: null, crescente: true };
 
 let TOTAL_USERS = 1000; // Número total de usuários a serem carregados
 
@@ -68,13 +68,18 @@ function bubbleSort(arr, key, crescente = true) {
 
 // Função que ordena a tabela com base no campo clicado
 function ordenarTabela(campo) {
+  // se for idade, garanta que é number
+  if (campo === "idade") {
+    usuarios.forEach(u => u.idade = Number(u.idade));
+  }
+
   if (ordemAtual.campo === campo) {
-    ordemAtual = { campo, crescente: !ordemAtual.crescente };
+    ordemAtual.crescente = !ordemAtual.crescente;
   } else {
     ordemAtual = { campo, crescente: true };
   }
 
-  bubbleSort(usuarios, ordemAtual.campo, ordemAtual.crescente);
+  bubbleSort(usuarios, campo, ordemAtual.crescente);
   atualizarPaginacao();
 }
 
@@ -125,6 +130,10 @@ function renderizarTabela(data) {
 // Funções genéricas para editar e remover usuários
 async function editarUsuario(id) {
   const usuario = usuarios.find((u) => u.id === id);
+  if (!usuario) {
+    alert("Usuário não encontrado!");
+    return;
+  }
   if (!usuario) return;
 
   const novoNome = prompt("Novo nome:", usuario.nome);
@@ -148,7 +157,7 @@ async function editarUsuario(id) {
   if (novoEmail !== null) dadosAtualizados.email = novoEmail;
 
   try {
-    const resposta = await fetch(`/atualizar-usuario/${id}`, {
+    const resposta = await fetch(`/atualizar-usuario/${usuario.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

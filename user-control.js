@@ -5,11 +5,11 @@
  * adquirindo um bloqueio de arquivo para evitar condições de corrida.
  */
 
-const { el } = require("@faker-js/faker");
-const fs = require("fs/promises");
-const path = require("path");
-const lockfile = require("proper-lockfile");
+import fs from "fs/promises";
+import path from "path";
+import lockfile from "proper-lockfile";
 
+const __dirname = path.resolve();
 const filePath = path.join(__dirname, "usuarios.json");
 
 /**
@@ -19,7 +19,7 @@ const filePath = path.join(__dirname, "usuarios.json");
  * @param {Function} fn - Função assíncrona a ser executada enquanto o bloqueio está ativo.
  * @returns {Promise<*>} O resultado da função executada.
  */
-async function comLock(fn) {
+export async function comLock(fn) {
   let release;
   try {
     // tenta algumas vezes antes de falhar, evita deadlocks em picos de acesso
@@ -49,7 +49,7 @@ async function comLock(fn) {
  * @returns {Promise<Array<Object>>} Array de objetos de usuário parseados do JSON,
  *                                   ou array vazio em caso de erro.
  */
-async function lerUsuarios(num) {
+export async function lerUsuarios(num) {
   return comLock(async () => {
     try {
       const dados = await fs.readFile(filePath, "utf-8");
@@ -72,7 +72,7 @@ async function lerUsuarios(num) {
       }
 
       if (num < arr.length) {
-        arr_limited = arr.slice(0, num); // Limita o número de usuários retornados
+        let arr_limited = arr.slice(0, num); // Limita o número de usuários retornados
         console.log(`Total de usuários lidos: ${arr_limited.length}`);
         return arr_limited;
       }
@@ -82,6 +82,7 @@ async function lerUsuarios(num) {
         console.log(`Nenhum limite aplicado. Retornando todos os usuários.`);
         num = arr.length; // Atualiza num para o tamanho total do array
         console.log(`Número total de usuários: ${num}`);
+        return arr;
       } else {
         console.log(`Número máximo de usuários a retornar: ${num}`);
         return arr;
@@ -103,7 +104,7 @@ async function lerUsuarios(num) {
  * @returns {Promise<void>}         Promise resolvida quando a escrita for concluída
  *                                   (ou rejeitada em caso de erro).
  */
-async function salvarUsuarios(usuarios) {
+export async function salvarUsuarios(usuarios) {
   return comLock(async () => {
     try {
       const json = JSON.stringify(usuarios, null, 2);
@@ -115,7 +116,13 @@ async function salvarUsuarios(usuarios) {
   });
 }
 
-module.exports = {
-  lerUsuarios,
-  salvarUsuarios,
-};
+export async function appendUsuario(novoUsuario) {
+  try {
+    const usuariosExistentes = await lerUsuarios();
+    usuariosExistentes.push(novoUsuario);
+    await salvarUsuarios(usuariosExistentes);
+  } catch (err) {
+    console.error("Erro ao adicionar novo usuário:", err);
+    throw err;
+  }
+}
